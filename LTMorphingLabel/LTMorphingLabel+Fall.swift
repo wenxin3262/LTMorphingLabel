@@ -91,8 +91,8 @@ extension LTMorphingLabel {
                 context!.saveGState()
                 let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
                 var charBottomY = charRect.origin.y + charRect.size.height - self.font.pointSize / 6
-                var charColor = self.textColor
-                
+//                var charColor = self.textColor
+
                 // Fall down if drawingProgress is more than 50%
                 if limbo.drawingProgress > 0.5 {
                     let ease = CGFloat(
@@ -104,14 +104,14 @@ extension LTMorphingLabel {
                         )
                     )
                     charBottomY = charBottomY + ease * 10.0
-                    let fadeOutAlpha = min(
-                        1.0,
-                        max(
-                            0.0,
-                            limbo.drawingProgress * -2.0 + 2.0 + 0.01
-                        )
-                    )
-                    charColor = self.textColor.withAlphaComponent(fadeOutAlpha)
+//                    let fadeOutAlpha = min(
+//                        1.0,
+//                        max(
+//                            0.0,
+//                            limbo.drawingProgress * -2.0 + 2.0 + 0.01
+//                        )
+//                    )
+//                    charColor = self.textColor.withAlphaComponent(fadeOutAlpha)
                 }
                 
                 charRect = CGRect(
@@ -133,11 +133,11 @@ extension LTMorphingLabel {
                     ) * angle
                 )
                 context!.rotate(by: rotation * CGFloat(M_PI) / 180.0)
-                let s = String(limbo.char)
-                s.draw(in: charRect, withAttributes: [
-                    NSFontAttributeName: self.font.withSize(limbo.size),
-                    NSForegroundColorAttributeName: charColor
-                    ])
+//                let s = String(limbo.char)
+//                s.draw(in: charRect, withAttributes: [
+//                    NSFontAttributeName: self.font.withSize(limbo.size),
+//                    NSForegroundColorAttributeName: charColor
+//                    ])
                 context!.restoreGState()
                 
                 return true
